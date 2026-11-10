@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO TITLE & DESCRIPTION -->
+    <title>Translate English to Spanish & Spanish to English Online</title>
+    <meta name="description" content="Free online English to Spanish and Spanish to English translator. Fast, accurate, and easy-to-use translation tool with common phrases and guides.">
+    <meta name="keywords" content="translate english to spanish, spanish to english translator, free spanish translation">
+
+    <!-- CLEAN TEXT FAVICON (No Emoji) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%231a73e8'/><text x='50%25' y='54%25' font-size='44' font-family='Arial, sans-serif' font-weight='bold' fill='white' text-anchor='middle' dominant-baseline='middle'>ES</text></svg>">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="English to Spanish Translator - Free Online Tool">
+    <meta property="og:description" content="Instant two-way translation between English and Spanish.">
+    <meta property="og:type" content="website">
+
+    <!-- 1. GOOGLE SEARCH CONSOLE VERIFICATION -->
+    <meta name="google-site-verification" content="YOUR_SEARCH_CONSOLE_CODE_HERE" />
+
+    <!-- 2. GOOGLE ANALYTICS (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #202124;
+            line-height: 1.6;
+        }
+
+        /* --- CLEAN NAVBAR --- */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #dadce0;
+            padding: 14px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 19px;
+            font-weight: 700;
+            color: #1a73e8;
+            text-decoration: none;
+            letter-spacing: -0.3px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            color: #5f6368;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #1a73e8;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 22px;
+            background: none;
+            border: none;
+            color: #5f6368;
+            cursor: pointer;
+        }
+
+        /* --- MAIN WRAPPER --- */
+        .main-wrapper {
+            max-width: 960px;
+            margin: 28px auto;
+            padding: 0 16px;
+        }
+
+        /* --- TRANSLATOR CARD --- */
+        .translator-card {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        .translator-card h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #202124;
+            margin-bottom: 18px;
+            text-align: center;
+        }
+
+        /* MODE TABS */
+        .mode-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        .mode-btn {
+            padding: 8px 16px;
+            border: 1px solid #dadce0;
+            background: #f8f9fa;
+            color: #3c4043;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+        .mode-btn.active {
+            background: #e8f0fe;
+            color: #1a73e8;
+            border-color: #1a73e8;
+            font-weight: 600;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            background: #f1f3f4;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .lang-label {
+            font-weight: 600;
+            font-size: 15px;
+            color: #202124;
+            width: 40%;
+            text-align: center;
+        }
+        .swap-btn {
+            background: #ffffff;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .swap-btn:hover {
+            background: #e8eaed;
+            color: #202124;
+        }
+        .text-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        textarea {
+            width: 100%;
+            height: 190px;
+            padding: 14px;
+            border: 1px solid #dadce0;
+            border-radius: 6px;
+            font-size: 16px;
+            resize: none;
+            outline: none;
+            color: #202124;
+        }
+        textarea:focus {
+            border-color: #1a73e8;
+        }
+        textarea[readonly] {
+            background-color: #f8f9fa;
+        }
+        .box-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+        .small-btn {
+            background: #ffffff;
+            color: #5f6368;
+            border: 1px solid #dadce0;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .small-btn:hover {
+            background: #f1f3f4;
+            color: #202124;
+        }
+        .translate-btn {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+        .translate-btn:hover {
+            background: #1557b0;
+        }
+
+        /* --- ARTICLES SECTION --- */
+        .articles-section {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            padding: 28px;
+            border-radius: 8px;
+        }
+        .articles-section h2 {
+            color: #202124;
+            margin-bottom: 18px;
+            font-size: 20px;
+            border-bottom: 1px solid #dadce0;
+            padding-bottom: 10px;
+        }
+        .article-block {
+            margin-bottom: 24px;
+        }
+        .article-block:last-child {
+            margin-bottom: 0;
+        }
+        .article-block h3 {
+            color: #1a73e8;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+        .article-block p {
+            margin-bottom: 10px;
+            color: #4d5156;
+            font-size: 15px;
+        }
+        .phrase-list {
+            list-style: none;
+            background: #f8f9fa;
+            padding: 14px 18px;
+            border-radius: 6px;
+            border-left: 3px solid #1a73e8;
+        }
+        .phrase-list li {
+            margin-bottom: 6px;
+            font-size: 14px;
+            color: #3c4043;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            border-top: 1px solid #dadce0;
+            background: #ffffff;
+            color: #5f6368;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 13px;
+        }
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- MOBILE RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 55px;
+                left: 0;
+                width: 100%;
+                background: #ffffff;
+                border-bottom: 1px solid #dadce0;
+                padding: 15px 20px;
+                gap: 14px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .text-boxes {
+                grid-template-columns: 1fr;
+            }
+            .mode-tabs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">English to Spanish</a>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">&#9776;</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#how-to-use">How to Use</a></li>
+                <li><a href="#common-phrases">Common Phrases</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <section class="translator-card">
+            <h1>English to Spanish &amp; Spanish to English Translator</h1>
+
+            <div class="mode-tabs">
+                <button class="mode-btn active" id="btnEnToEs" onclick="setMode('en', 'es')">English to Spanish</button>
+                <button class="mode-btn" id="btnEsToEn" onclick="setMode('es', 'en')">Spanish to English</button>
+            </div>
+
+            <div class="controls">
+                <div class="lang-label" id="fromLangLabel">English</div>
+                <button class="swap-btn" onclick="swapLanguages()" title="Swap Languages">&#8644;</button>
+                <div class="lang-label" id="toLangLabel">Spanish</div>
+            </div>
+
+            <div class="text-boxes">
+                <div>
+                    <textarea id="inputText" placeholder="Enter English text here..."></textarea>
+                    <div class="box-actions">
+                        <button class="small-btn" onclick="clearText()">Clear</button>
+                    </div>
+                </div>
+                <div>
+                    <textarea id="outputText" placeholder="Translation will appear here..." readonly></textarea>
+                    <div class="box-actions">
+                        <button class="small-btn" onclick="copyText()">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="translate-btn" onclick="translateText()">Translate</button>
+        </section>
+
+        <section class="articles-section">
+            <h2>Translation Guide &amp; Resources</h2>
+
+            <div class="article-block" id="how-to-use">
+                <h3>How to Use This Translator</h3>
+                <p>Choose your translation direction using the tabs above (<strong>English to Spanish</strong> or <strong>Spanish to English</strong>), or use the swap button to reverse languages instantly. Type or paste your text into the left box and click <strong>Translate</strong>.</p>
+            </div>
+
+            <div class="article-block" id="common-phrases">
+                <h3>Common English and Spanish Phrases</h3>
+                <p>Essential everyday phrases for travel, business, and daily conversation:</p>
+                <ul class="phrase-list">
+                    <li><strong>Hello, how are you?</strong> — Hola, ¿cómo estás?</li>
+                    <li><strong>Thank you very much</strong> — Muchas gracias</li>
+                    <li><strong>How much does this cost?</strong> — ¿Cuánto cuesta esto?</li>
+                    <li><strong>I do not understand</strong> — No entiendo</li>
+                    <li><strong>Please</strong> — Por favor</li>
+                </ul>
+            </div>
+
+            <div class="article-block" id="about">
+                <h3>About English-Spanish Translation</h3>
+                <p>English and Spanish are among the most widely spoken languages globally. This free online tool provides fast, two-way translations to help students, travelers, and professionals communicate clearly without language barriers.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 English to Spanish Translator. All rights reserved.</p>
+        <p style="margin-top: 6px;">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("active");
+        }
+
+        let fromLang = "en";
+        let toLang = "es";
+
+        function setMode(from, to) {
+            fromLang = from;
+            toLang = to;
+            updateUI();
+        }
+
+        function swapLanguages() {
+            let temp = fromLang;
+            fromLang = toLang;
+            toLang = temp;
+
+            let inputVal = document.getElementById("inputText").value;
+            let outputVal = document.getElementById("outputText").value;
+            document.getElementById("inputText").value = outputVal;
+            document.getElementById("outputText").value = inputVal;
+
+            updateUI();
+        }
+
+        function updateUI() {
+            const isEnToEs = (fromLang === "en");
+            document.getElementById("fromLangLabel").innerText = isEnToEs ? "English" : "Spanish";
+            document.getElementById("toLangLabel").innerText = isEnToEs ? "Spanish" : "English";
+            document.getElementById("inputText").placeholder = isEnToEs ? "Enter English text here..." : "Enter Spanish text here...";
+
+            document.getElementById("btnEnToEs").classList.toggle("active", isEnToEs);
+            document.getElementById("btnEsToEn").classList.toggle("active", !isEnToEs);
+        }
+
+        async function translateText() {
+            const text = document.getElementById("inputText").value.trim();
+            const outputBox = document.getElementById("outputText");
+
+            if (!text) {
+                outputBox.value = "";
+                return;
+            }
+
+            outputBox.value = "Translating...";
+            const apiUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${fromLang}|${toLang}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                if (data.responseData && data.responseData.translatedText) {
+                    outputBox.value = data.responseData.translatedText;
+                } else {
+                    outputBox.value = "Error: Could not translate.";
+                }
+            } catch (error) {
+                outputBox.value = "Network error. Please try again.";
+            }
+        }
+
+        function copyText() {
+            const outputBox = document.getElementById("outputText");
+            if (!outputBox.value) return;
+            navigator.clipboard.writeText(outputBox.value).then(() => {
+                alert("Copied to clipboard!");
+            });
+        }
+
+        function clearText() {
+            document.getElementById("inputText").value = "";
+            document.getElementById("outputText").value = "";
+        }
+    </script>
+
+</body>
+</html>
